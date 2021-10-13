@@ -92,6 +92,8 @@
         <div id="chloropleth" class="vis-container"></div>
       </div>
     </div>
+
+
     <!-- end pure grid group -->
 
     <!-- pure grid group -->
@@ -152,9 +154,19 @@
 
     </div>
     <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+          <div class="pure-u-2-3 ">
+            <h2>Number of suicide cases by Continents and Countries</h2>
+            <div id="bars" class="vis-container-py"></div>
+          </div>
+        </div>
+        <!-- end pure grid group -->
+
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
-        <p>This visualisation is created by <a href="https://github.com/cyan0013" target="_blank">Lang Zolyn </a> (30719704) for FIT 3179 Data Visualisation Assignment 2. </p>
+        <p>This visualisation is created by <a href="https://github.com/zolyn17" target="_blank">Lang Zolyn </a> (30719704) for FIT 3179 Data Visualisation Assignment 2. </p>
         <p> The datasource is <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016" target="_blank">Suicide Rates Overview 1985 to 2016</href></a>.</p>
       </div>
       </div>
@@ -167,6 +179,7 @@
   var vis2 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/FIT3179_VI2_bubble.json";
   var vis3 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/FIT3179_VIZ2_Line.json";
   var vis4 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/FIT3179_VIZ2_pyramid.json";
+  var vis5 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/InteractiveBar_Chart5.json"
 
     vegaEmbed('#chloropleth', vis1).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -184,6 +197,10 @@
 
 
     vegaEmbed('#poppyramid', vis4).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#bars', vis5).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 </script>
