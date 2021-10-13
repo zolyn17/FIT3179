@@ -5,6 +5,7 @@
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <!-- Import vega-embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <!-- Import pure.css -->
@@ -60,6 +61,11 @@
       padding-right: 20px;
       margin-right: -100px;
     }
+
+    .description-left_z{
+      padding-right: 20px;
+      margin-right: -10px;
+    }
     .description-middle{
       padding-right: 20px;
       margin-right: 40px;
@@ -100,7 +106,7 @@
     <div class="pure-g">
       <div class="pure-u-1-3">
         <div class="description description-middle">
-          <h2> Suicides Cases By Country</h2>
+          <h2> Suicides Cases By Country and GDP</h2>
           <p>We can see that the <span style="color: #6950a3; font-weight:bold;">United States </span>and the <span style="color: #4a9c98; font-weight:bold;">Russian Federation </span>has the highest number of suicide cases. 
             An interesting finding is that although <span style="color: #ddb916; font-weight:bold;">Africa</span> has a lower GDP Per Capita their rate of suicide is 0.08 
             which is  <span style="color: #73aa85; font-weight:bold;">lower</span> compared to the US that is 1.28. The Russian Federation which belongs to Europe has a very 
@@ -127,7 +133,7 @@
             has peaked around the year 2014. 
             The suicide cases have been increasing substantially for the <span style="color: #31aa56; font-weight:bold;">Millenials </span>
             but it has decreased after 2014. 
-            As for generation <span style="color: #4798ce; font-weight:bold;">Boomers</span>, the suicide cases are the highest during the year 1996. 
+            As for generation <span style="color: #358bc5; font-weight:bold;">Boomers</span>, the suicide cases are the highest during the year 1996. 
             Besides that, the number of suicide cases has started decreasing after the year 1990 for generation 
             <span style="color: #dbe64b; font-weight:bold;">Silent</span>.</p>
         </div>
@@ -157,12 +163,41 @@
 
         <!-- pure grid group -->
         <div class="pure-g">
-          <div class="pure-u-2-3 ">
-            <h2>Number of suicide cases by Continents and Countries</h2>
-            <div id="bars" class="vis-container-py"></div>
+          <div class="pure-u-2-3">
+            <div id="waffle"  class="vis-container"></div>
+          </div>
+        <!-- end pure grid group -->
+
+
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+            <h2> Percentage of Suicide Cases by Generation</h2>
+            <p> Around 34% of suiciders are from the <span style="color: #358bc5; font-weight:bold;">Boomers</span> generation,26% 
+              from the <span style="color: #ebd65f; font-weight:bold;">Silent</span> generation and 23% from <span style="color: #cf2c50; font-weight:bold;">Generation X </span>. The minority
+               of the suicides comes from other generations which is the
+               <span style="color: #FFA500; font-weight:bold;"> G.I. Generation</span>,
+               <span style="color: #7090b4; font-weight:bold;">  Generation Z</span>
+                and the <span style="color: #1cc755; font-weight:bold;">  Millenials.</span></p>
           </div>
         </div>
-        <!-- end pure grid group -->
+      </div>
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left_z">
+          <h2>Top Ranking of continents and countries with highest suicide cases</h2>
+          <p><span style="color: #254f52; font-weight:bold;">Europe</span> has the highest number of suicide cases, 
+            followed by the <span style="color: #7177cf; font-weight:bold;">Asia</span> region than North America.
+             We also notice that <span style="color: #2c705c; font-weight:bold;">Russian Federation </span>has the highest number of suicide cases which is 1209742,
+              followed by the United States that has 1034013 then Japan 806902.</p>
+        </div>
+        </div>
+        <div class="pure-u-2-3">
+          <div id="bars"  class="vis-container-bars"></div>
+        </div>
+
+    </div>
+    <!-- end pure grid group -->
 
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
@@ -179,7 +214,8 @@
   var vis2 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/FIT3179_VI2_bubble.json";
   var vis3 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/FIT3179_VIZ2_Line.json";
   var vis4 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/FIT3179_VIZ2_pyramid.json";
-  var vis5 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/InteractiveBar_Chart5.json"
+  var vis5 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/waffle_viz2_3179.json"
+  var vis6 = "https://raw.githubusercontent.com/zolyn17/FIT3179/main/JSON/visualization.vl%20(9).json"
 
     vegaEmbed('#chloropleth', vis1).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -200,7 +236,11 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#bars', vis5).then(function(result) {
+    vegaEmbed('#waffle', vis5).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#bars', vis6).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 </script>
